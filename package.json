@@ -1,0 +1,25 @@
+{
+  "name": "jenkins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open --config-file configs/cypress.json",
+    "cypress:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saiprabhu-dandanayak/jenkins.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saiprabhu-dandanayak/jenkins/issues"
+  },
+  "homepage": "https://github.com/saiprabhu-dandanayak/jenkins#readme",
+  "dependencies": {
+    "cypress": "^13.7.2"
+  }
+}
