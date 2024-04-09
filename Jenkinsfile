@@ -1,12 +1,22 @@
 pipeline {
     agent any
+
     stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/saiprabhu-dandanayak/jenkins.git']]])
+            }
+        }
         stage('Build') {
             steps {
-                sh 'npm install typescript'
-                sh 'npm install cypress --save-dev'
-                sh 'npm run cypress:run'
+                git branch: 'main', url: 'https://github.com/saiprabhu-dandanayak/jenkins.git'
+                sh 'python3 ops.py'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'python3 -m pytest'
             }
         }
     }
-}
+} 
