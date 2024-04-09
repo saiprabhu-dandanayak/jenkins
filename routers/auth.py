@@ -16,8 +16,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 load_dotenv()
 
 SECRET_KEY = secrets.token_hex(32)
-ALGORITHM = os.getenv("ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("TOKEN_EXPIRE_MINUTES"))
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 10
 
 def create_jwt_token(data: dict, expires_delta: timedelta):
     to_encode = data.copy()
