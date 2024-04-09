@@ -7,12 +7,16 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/saiprabhu-dandanayak/jenkins.git']]])
             }
         }
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip3 install -r requirements.txt'
+            }
+        }
         stage('Build') {
             steps {
                 git branch: 'main', url: 'https://github.com/saiprabhu-dandanayak/jenkins.git'
                 sh 'python3 main.py'
             }
-        }
-        
+        }   
     }
-} 
+}
