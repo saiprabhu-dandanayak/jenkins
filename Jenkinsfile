@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     git branch: 'main', url: 'https://github.com/saiprabhu-dandanayak/jenkins.git'
-                    sh 'uvicorn main:app --reload'
+                     // sh 'uvicorn main:app --reload'
                 }
             }
         }   
