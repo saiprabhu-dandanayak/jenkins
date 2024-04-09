@@ -14,8 +14,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/saiprabhu-dandanayak/jenkins.git'
-                sh 'python3 main.py'
+                script {
+                    git branch: 'main', url: 'https://github.com/saiprabhu-dandanayak/jenkins.git'
+                    sh 'uvicorn main:app --reload'
+                }
             }
         }   
     }
